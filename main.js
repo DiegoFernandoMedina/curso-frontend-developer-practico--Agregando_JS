@@ -4,26 +4,42 @@ const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector("#productDetail")
 const cardsContainer = document.querySelector('.cards-container');
+const productDetailCloseIcon = document.querySelector(".product-detail-close");
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
+productDetailCloseIcon.addEventListener("click", closedAsideProductDetail);
 
 function toggleDesktopMenu() {
   shoppingCartContainer.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
+  productDetailContainer.classList.add("inactive");
 }
 
 function toggleMobileMenu() {
   shoppingCartContainer.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
+  productDetailContainer.classList.add("inactive");
+  
 }
 
 function toggleCarritoAside() {
-  mobileMenu.classList.add('inactive');
   shoppingCartContainer.classList.toggle('inactive');
+  mobileMenu.classList.add('inactive');
   desktopMenu.classList.add("inactive");
+  productDetailContainer.classList.add("inactive")
+}
+
+function openAsideProductDetail() {
+  productDetailContainer.classList.remove("inactive")
+  shoppingCartContainer.classList.add("inactive")
+}
+
+function closedAsideProductDetail(){
+  productDetailContainer.classList.add("inactive")
 }
 
 const productList = [];
@@ -80,7 +96,8 @@ function renderProducts(arr) {
   
     // product= {name, price, image} -> product.image
     const productImg = document.createElement('img');//Se crea una etiqueta img
-    productImg.setAttribute('src', product.image);// Se crea el atributo src para agregar una imagen y se agrega el contenido de la caracteristica del objeto.
+    productImg.setAttribute('src', product.image);// Se crea el atributo src para agregar una imagen y se agrega el contenido de la caracteristica del objeto
+    productImg.addEventListener("click", openAsideProductDetail)
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
