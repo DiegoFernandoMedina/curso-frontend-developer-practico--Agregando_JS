@@ -3,27 +3,26 @@ const menuHamIcon = document.querySelector('.menu');
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
 const desktopMenu = document.querySelector('.desktop-menu');
 const mobileMenu = document.querySelector('.mobile-menu');
-const aside = document.querySelector('.product-detail');
-const cardsContainer = document.querySelector(".cards-container");
-
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const cardsContainer = document.querySelector('.cards-container');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toggleCarritoAside);
 
 function toggleDesktopMenu() {
-  aside.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
   desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-  aside.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
   mobileMenu.classList.toggle('inactive');
 }
 
 function toggleCarritoAside() {
   mobileMenu.classList.add('inactive');
-  aside.classList.toggle('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
   desktopMenu.classList.add("inactive");
 }
 
@@ -58,6 +57,7 @@ productList.push({
   price: 620,
   image: 'https://img.freepik.com/fotos-premium/imagen-fondo-grafico-computadora-portatil-pantalla-blanco-escritorio-contra-fondo-gris-definitivo-maqueta-espacio-copia_236854-28385.jpg',
 });
+
 /* 
 <div class="product-card">
 <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
